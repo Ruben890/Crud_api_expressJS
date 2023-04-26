@@ -37,6 +37,115 @@
                         }
                     }
                 }
+            },
+            "/users/{userId}": {
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "description": "ID of user that we want to find",
+                        "type": "integer"
+                    }
+                ],
+                "get": {
+                    "tags": [
+                        "Users"
+                    ],
+                    "summary": "Get user with given ID",
+                    "responses": {
+                        "200": {
+                            "description": "User is found",
+                            "schema": {
+                                "$ref": "#/definitions/Users"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Create a new user",
+                "description": "Create a new user in system",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "User that went to create",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New user is created",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Update an existing user",
+                "description": "Update an existing user in system",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "ID of user to update",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "user",
+                        "in": "body",
+                        "description": "User data to update",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User is updated",
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Delete an existing user",
+                "description": "Delete an existing user from system",
+                "parameters": [
+                    {
+                        "name": "user_id",
+                        "in": "path",
+                        "description": "ID of user to delete",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User is deleted"
+                    }
+                }
             }
         }
     },
@@ -44,9 +153,6 @@
         "Users": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "integer"
-                },
                 "first_name": {
                     "type": "string"
                 },
