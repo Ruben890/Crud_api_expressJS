@@ -1,13 +1,12 @@
 const app = require('./app.js');
 const sequelize = require('./database/database.js');
 
-
 const main = async () => {
 
     try {
         await sequelize.authenticate();
         app.listen(app.get('port'), () => {
-           
+            console.log(`http://localhost:${app.get("port")}/api-v1-docs/#/Users/get_users`)
         })
 
     } catch (error) {
