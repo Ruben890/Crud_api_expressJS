@@ -3,7 +3,10 @@
 <div>
 <img src="/img.png" title="img_readmed" alt="img_readmed" />
 
-<p>💻http://localhost:{PORT}/api-v1-docs/</p>
+<br>
+<br>
+<p>💻 http://localhost:{PORT}/api-v1-docs/ </p>
+<hr>
 </div>
 
 <h4>📄 .env file information</h4>
